@@ -1,7 +1,7 @@
-# Cognifyz Technologies — FrontEnd Web Dev Internship 🚀
+# Cognifyz Technologies — FrontEnd Web Development Internship 🚀
 
 Welcome to the **Cognifyz Technologies — FrontEnd Web Dev Internship** repository!  
-This repo contains all the tasks you’ve completed as part of your front-end web development internship at Cognifyz Technologies.
+This repository contains all the tasks I  completed as part of your front-end web development internship at Cognifyz Technologies.
 
 Cognifyz Technologies is a technology company offering advanced software solutions, including AI, ML, data analytics, and web & application development services. :contentReference[oaicite:0]{index=0}
 

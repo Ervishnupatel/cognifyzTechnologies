@@ -1,0 +1,187 @@
+/* 1. ROOT VARIABLES */
+:root {
+    --bg-dark: #050505;
+    --primary-blue: #00d2ff;
+    --primary-purple: #9d50bb;
+    --glass-white: rgba(255, 255, 255, 0.05);
+    --border-white: rgba(255, 255, 255, 0.1);
+    --nav-height: 80px; 
+}
+
+/* 2. GLOBAL STYLES */
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* 3. FIXED NAVBAR (Ensuring Visibility) */
+.pro-nav {
+    height: var(--nav-height);
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-white);
+    z-index: 1000 !important; 
+}
+
+/* Fix for invisible Brand/Links */
+.navbar-brand, .nav-link {
+    color: #ffffff !important; 
+    font-weight: 600;
+    z-index: 1001;
+}
+
+.dot { 
+    color: var(--primary-blue); 
+}
+
+/* 4. FIXED HERO SECTION (Prevents hiding behind nav) */
+.hero {
+    padding-top: var(--nav-height); 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1; 
+}
+
+/* 5. FIXED GRADIENT TEXT */
+.gradient-text {
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; 
+    display: inline-block;
+    font-weight: 800;
+}
+
+/* 6. BACKGROUND ANIMATION */
+.mesh-gradient {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; 
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(157, 80, 187, 0.12) 0%, transparent 40%);
+    filter: blur(60px);
+}
+
+/* 7. PRO CARD DESIGN */
+.pro-card {
+    position: relative;
+    background: var(--glass-white);
+    border: 1px solid var(--border-white);
+    border-radius: 30px;
+    padding: 40px;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+
+.pro-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--primary-blue);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, var(--primary-blue), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    filter: blur(40px);
+    z-index: -1;
+}
+
+.pro-card:hover .card-glow {
+    opacity: 0.15;
+}
+
+/* 8. BUTTONS & UI */
+.btn-glow {
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
+    color: white !important;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+    transition: 0.3s ease;
+}
+
+.btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(157, 80, 187, 0.5);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.badge {
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+
+/* 00000000000000000 */
+
+/* --- 10. MOBILE RESPONSIVENESS & OPTIMIZATION --- */
+
+@media (max-width: 768px) {
+    :root {
+      
+        --gem-size: 45px; 
+    }
+
+    .geometry-viewport {
+        height: 100px; 
+        margin: 10px 0;
+    }
+
+    .face {
+  
+        border-left: 22.5px solid transparent;
+        border-right: 22.5px solid transparent;
+        border-bottom: 40px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .face::after {
+        left: -22.5px;
+        width: 45px;
+        height: 40px;
+    }
+
+    .face.bottom {
+        top: 40px;
+    }
+
+
+    .glass-crystal {
+        animation: floatingOrb 5s ease-in-out infinite;
+        filter: brightness(1.2);
+    }
+}
+
+/* PERFORMANCE BOOST: This tells the mobile GPU to prepare for animation */
+.glass-crystal, .face {
+    will-change: transform;
+    backface-visibility: hidden;
+}

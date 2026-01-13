@@ -1,0 +1,189 @@
+/* Variables for easy customization */
+:root {
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --glass-bg: rgba(255, 255, 255, 0.15); 
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --input-fill: rgba(255, 255, 255, 0.1);
+    --text-color: #ffffff;
+    --primary-btn: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed; 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Form container - The Glass Card */
+.container {
+    width: 100%;
+    max-width: 380px;
+    padding: 40px;
+    background: var(--glass-bg);
+    
+    
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); 
+    
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #221a54;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.9;
+    color: #221a54;
+}
+
+/* Input fields - Transparent Glass style */
+/* input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    background: var(--input-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-sizing: border-box;
+     
+
+    font-size: 1rem;
+    transition: var(--transition);
+} */
+
+
+
+
+input::placeholder {
+      color: rgba(255, 255, 255, 0.5);  
+    
+}
+
+/* input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+     border-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+} */
+
+
+
+
+
+/* Target the browser's Autofill state */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+   
+    -webkit-box-shadow: 0 0 0 1000px var(--input-bg) inset !important;
+    
+   
+    -webkit-text-fill-color: var(--text-head) !important;
+    
+
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Also ensure the background stays dark on manual entry */
+input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 8px;
+    background: var(--input-bg); 
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-sizing: border-box;
+    color: var(--text-head);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+/* Ensure background doesn't flip to white when clicking */
+input:focus {
+     background: rgba(0, 0, 0, 0.4); 
+    border-color: var(--primary-accent);
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+/* Button - Solid contrast against glass */
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 35px;
+    border: 2px solid   #764ba2;
+        background: var(--glass-bg);
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #acb8ee;
+    border: none;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+span {
+    color: #ff9f9f;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 8px;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Success message */
+.success {
+    text-align: center;
+    background: rgba(35, 239, 120, 0.416);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 1px solid rgb(5, 239, 103);
+}

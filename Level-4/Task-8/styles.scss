@@ -1,0 +1,180 @@
+//  STEP 1: ADVANCED VARIABLES
+$primary: #6366f1;         
+$accent: #a855f7;          
+$bg-dark: #0f172a;         
+$glass-white: rgba(255, 255, 255, 0.03);
+$glass-border: rgba(255, 255, 255, 0.1);
+
+// STEP 2: NESTED ADVANCED STYLES 
+body {
+  background-color: $bg-dark;
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+
+  // Background blur effect
+  &::before {
+    content: "";
+    position: fixed;
+    top: -10%; left: -10%;
+    width: 40%; height: 40%;
+    background: radial-gradient(circle, rgba($primary, 0.15), transparent);
+    filter: blur(80px);
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .navbar {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $glass-border;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -1px;
+      span { color: $primary; }
+    }
+  }
+
+  .hero {
+    padding: 120px 0 80px;
+    text-align: center;
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+
+      .highlight {
+        background: linear-gradient(90deg, $primary, $accent);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .hero-text {
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 1.5rem auto;
+      font-size: 1.1rem;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    background: $glass-white;
+    border: 1px solid $glass-border;
+    padding: 2.5rem;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+
+    // Advanced Sass Hover Nesting
+    &:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba($primary, 0.5);
+      
+
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    
+
+      .icon {
+        background: $primary;
+        transform: rotate(15deg);
+      }
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      background: $glass-border;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      transition: 0.3s;
+      font-size: 1.2rem;
+    }
+
+    h3 { margin: 0 0 1rem; font-size: 1.5rem; }
+    p { color: #94a3b8; line-height: 1.6; margin: 0; }
+  }
+
+
+//   00000000000000000000000000000000000000000000000000000000
+// Add these to your variables at the top
+$glow-color: #6366f1;
+$glow-spread: 10px;
+
+.navbar {
+  // existing navbar styles
+
+  .glow-btn {
+    background: $primary;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 1;
+
+    // The Glowing "Aura" using a Pseudo-element
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: $primary;
+      border-radius: 50px;
+      z-index: -1;
+      transition: all 0.4s ease;
+      opacity: 0;
+    }
+
+    // Hover Effects (Task 8: Nested Selectors)
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px $glow-spread rgba($primary, 0.4);
+      letter-spacing: 1px;
+
+      &::after {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: blur(15px);
+      }
+    }
+
+    // Click effect
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+}

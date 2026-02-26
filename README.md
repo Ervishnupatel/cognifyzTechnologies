@@ -46,7 +46,7 @@ This internship focused on front-end development using:
 - **HTML5**
 - **CSS3 / SCSS**
 - **JavaScript**
-- (optional) Frameworks/Libraries like Bootstrap, React, etc. *(if any)*
+
 
 ---
 
